@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="[Your Name] — AI Engineer Portfolio. Specializing in [Your Specialization]. Available for [Your Availability]." />
+  <title>[Shashank Raman] | AI Engineer Portfolio</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet" />
+
+  <!-- Boxicons for skill + nav icons -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+  <!-- ============================================================
+         CANVAS (Particle Background — rendered by JS)
+    ============================================================ -->
+  <canvas id="particleCanvas"></canvas>
+
+  <!-- ============================================================
+         NAVBAR
+    ============================================================ -->
+  <nav id="navbar" class="navbar" role="navigation" aria-label="Main Navigation">
+    <div class="nav-container">
+      <!-- Logo / Brand -->
+      <a href="#home" class="nav-logo" id="nav-logo">
+        <span class="logo-bracket">&lt;</span>
+        <span class="logo-name">[SR]</span>
+        <span class="logo-bracket">/&gt;</span>
+      </a>
+
+      <!-- Desktop Links -->
+      <ul class="nav-links" id="nav-links" role="list">
+        <li><a href="#home" class="nav-link active" id="nav-home">Home</a></li>
+        <li><a href="#about" class="nav-link" id="nav-about">About</a></li>
+        <li><a href="#skills" class="nav-link" id="nav-skills">Skills</a></li>
+        <li><a href="#projects" class="nav-link" id="nav-projects">Projects</a></li>
+        <li><a href="#experience" class="nav-link" id="nav-experience">Experience</a></li>
+        <li><a href="#contact" class="nav-link" id="nav-contact">Contact</a></li>
+      </ul>
+
+      <!-- CTA Button -->
+      <a href="#contact" class="btn btn-primary btn-sm" id="nav-cta">Hire Me</a>
+
+      <!-- Hamburger (mobile) -->
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <!-- Mobile Menu Drawer -->
+    <div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Mobile navigation">
+      <ul class="mobile-nav-links" role="list">
+        <li><a href="#home" class="mobile-nav-link" id="mob-home">Home</a></li>
+        <li><a href="#about" class="mobile-nav-link" id="mob-about">About</a></li>
+        <li><a href="#skills" class="mobile-nav-link" id="mob-skills">Skills</a></li>
+        <li><a href="#projects" class="mobile-nav-link" id="mob-projects">Projects</a></li>
+        <li><a href="#experience" class="mobile-nav-link" id="mob-experience">Experience</a></li>
+        <li><a href="#contact" class="mobile-nav-link" id="mob-contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+         HERO SECTION
+    ============================================================ -->
+  <section id="home" class="section hero-section">
+    <div class="hero-content fade-in-up">
+      <!-- Greeting badge -->
+      <div class="hero-badge" id="hero-badge">
+        <span class="badge-dot"></span>
+        <!-- EDIT: Replace with your greeting -->
+        <span>Available for opportunities</span>
+      </div>
+
+      <!-- Name -->
+      <h1 class="hero-name" id="hero-name">
+        Hi, I'm <span class="gradient-text">Shashank Raman</span>
+      </h1>
+
+      <!-- Title with typing animation -->
+      <div class="hero-title-wrapper" id="hero-title-wrapper">
+        <span class="hero-title-static">I build </span>
+        <span class="hero-title-typed" id="typed-text"></span>
+        <span class="typing-cursor">|</span>
+      </div>
+
+      <!-- Tagline -->
+      <p class="hero-tagline" id="hero-tagline">
+        <!-- EDIT: Replace with your personal tagline -->
+        Building AI systems using LLMs, ML, and real-world data
+      </p>
+
+      <!-- CTA Buttons -->
+      <div class="hero-actions" id="hero-actions">
+        <a href="#projects" class="btn btn-primary" id="hero-btn-projects">
+          <i class="bx bx-code-alt"></i> View Projects
+        </a>
+        <a href="assets/resume.pdf" class="btn btn-outline" id="hero-btn-resume" download>
+          <i class="bx bx-download"></i> Download Resume
+        </a>
+        <a href="https://github.com/[your-username]" target="_blank" rel="noopener noreferrer" class="btn btn-ghost"
+          id="hero-btn-github">
+          <i class="bx bxl-github"></i> GitHub
+        </a>
+      </div>
+
+      <!-- Scroll indicator -->
+      <div class="scroll-indicator" id="scroll-indicator">
+        <div class="scroll-dot"></div>
+      </div>
+    </div>
+
+    <!-- Decorative Hero Visual -->
+    <div class="hero-visual fade-in-right" id="hero-visual">
+      <div class="hero-orb"></div>
+      <div class="hero-ring ring-1"></div>
+      <div class="hero-ring ring-2"></div>
+      <div class="hero-ring ring-3"></div>
+      <div class="hero-code-block">
+        <div class="code-dot red"></div>
+        <div class="code-dot yellow"></div>
+        <div class="code-dot green"></div>
+        <pre class="code-preview"><code><span class="code-kw">class</span> <span class="code-cls">[YourName]</span>:
+  role <span class="code-op">=</span> <span class="code-str">"AI Engineer"</span>
+  skills <span class="code-op">=</span> [
+    <span class="code-str">"Python"</span>,
+    <span class="code-str">"ML"</span>,
+    <span class="code-str">"LLM"</span>,
+  ]
+  passion <span class="code-op">=</span> <span class="code-str">"Building AI"</span>
+
+  <span class="code-kw">def</span> <span class="code-fn">create_impact</span>():
+    <span class="code-kw">return</span> <span class="code-str">"Innovation ✨"</span></code></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+         ABOUT SECTION
+    ============================================================ -->
+  <section id="about" class="section about-section reveal">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Get to know me</span>
+        <h2 class="section-title">About <span class="gradient-text">Me</span></h2>
+      </div>
+
+      <div class="about-grid">
+        <!-- Profile Image -->
+        <div class="about-image-wrapper fade-in-left">
+          <div class="about-image-frame" id="about-image-frame">
+            <!-- EDIT: Replace with your actual image path -->
+            <img src="assets/profile.jpg" alt="[Your Name] — AI Engineer" class="about-image" id="about-image"
+              onerror="this.style.display='none'; document.getElementById('about-image-placeholder').style.display='flex';" />
+            <!-- Shown if image not found -->
+            <div class="about-image-placeholder" id="about-image-placeholder">
+              <i class="bx bx-user"></i>
+              <span>Your Photo Here</span>
+            </div>
+          </div>
+          <!-- Decorative badge on image -->
+          <div class="about-badge">
+            <span class="badge-number">8+</span>
+            <span class="badge-label">Projects Built</span>
+          </div>
+        </div>
+
+        <!-- About Text -->
+        <div class="about-text fade-in-right" id="about-text">
+          <h3 class="about-subtitle" id="about-subtitle">
+            <!-- EDIT: Customize your intro headline -->
+            AI Engineer & Intelligent Systems Builder
+          </h3>
+
+          <!-- EDIT: Replace with your actual bio paragraphs -->
+          <p id="about-p1">
+            I'm AI Engineer specializing in Artificial Intelligence and Machine Learning, with
+            a strong focus on building real-world AI systems. I enjoy solving practical problems using data-driven
+            approaches and developing intelligent applications powered by machine learning and large language models.
+          </p>
+          <p id="about-p2">
+            I have worked on multiple projects across domains such as natural language processing, computer vision, and
+            predictive modeling. My work includes building LLM-powered applications, multimodal AI systems, and
+            data-driven solutions using Python, deep learning frameworks, and modern AI tools.
+          </p>
+          <p id="about-p3">
+            I am particularly interested in building scalable AI systems and exploring agentic AI workflows. I
+            continuously experiment with new technologies and focus on designing systems that are efficient, impactful,
+            and production-ready.
+          </p>
+
+          <!-- Quick Stats -->
+          <div class="about-stats" id="about-stats">
+            <div class="stat-item">
+              <span class="stat-number gradient-text">8+</span>
+              <span class="stat-label">Projects</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number gradient-text">12+</span>
+              <span class="stat-label">Months Experience</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number gradient-text">15+</span>
+              <span class="stat-label">Technologies</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number gradient-text">30+</span>
+              <span class="stat-label">Contributions</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+         SKILLS SECTION
+    ============================================================ -->
+  <section id="skills" class="section skills-section reveal">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">What I work with</span>
+        <h2 class="section-title">Technical <span class="gradient-text">Skills</span></h2>
+      </div>
+
+      <div class="skills-grid" id="skills-grid">
+
+        <!-- ─── Skill Category Card ─── -->
+        <!-- HOW TO DUPLICATE: Copy any .skill-category block and update the icon, title, and skill tags -->
+
+        <!-- Category 1: Programming Languages -->
+        <div class="skill-category reveal-card">
+          <div class="skill-cat-header">
+            <div class="skill-cat-icon">
+              <i class="bx bx-code-curly"></i>
+            </div>
+            <h3 class="skill-cat-title">Programming</h3>
+          </div>
+          <div class="skill-tags">
+            <!-- EDIT: Replace each skill-tag span with your actual skills -->
+            <span class="skill-tag" data-level="expert">Python</span>
+            <span class="skill-tag" data-level="advanced">SQL</span>
+            <span class="skill-tag" data-level="intermediate">Java</span>
+            <span class="skill-tag" data-level="intermediate">JavaScript</span>
+            <span class="skill-tag" data-level="beginner">Typescript</span>
+            <!-- Add more tags here -->
+          </div>
+        </div>
+
+        <!-- Category 2: AI / ML -->
+        <div class="skill-category reveal-card">
+          <div class="skill-cat-header">
+            <div class="skill-cat-icon">
+              <i class="bx bx-brain"></i>
+            </div>
+            <h3 class="skill-cat-title">AI / ML</h3>
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag" data-level="advanced">Scikit-learn</span>
+            <span class="skill-tag" data-level="advanced">TensorFlow</span>
+            <span class="skill-tag" data-level="advanced">NLP</span>
+            <span class="skill-tag" data-level="advanced">Computer Vision</span>
+            <span class="skill-tag" data-level="advanced">LangChain</span>
+            <span class="skill-tag" data-level="intermediate">LSTM</span>
+            <!-- Add more tags here -->
+          </div>
+        </div>
+
+        <!-- Category 3: Tools & Platforms -->
+        <div class="skill-category reveal-card">
+          <div class="skill-cat-header">
+            <div class="skill-cat-icon">
+              <i class="bx bx-wrench"></i>
+            </div>
+            <h3 class="skill-cat-title">Tools & Platforms</h3>
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag" data-level="advanced">Git</span>
+            <span class="skill-tag" data-level="advanced">Docker</span>
+            <span class="skill-tag" data-level="intermediate">AWS</span>
+            <span class="skill-tag" data-level="advanced">Streamlit</span>
+            <span class="skill-tag" data-level="intermediate">Power BI</span>
+            <span class="skill-tag" data-level="intermediate">VS Code</span>
+            <!-- Add more tags here -->
+          </div>
+        </div>
+
+        <!-- Category 4: Concepts -->
+        <div class="skill-category reveal-card">
+          <div class="skill-cat-header">
+            <div class="skill-cat-icon">
+              <i class="bx bx-bulb"></i>
+            </div>
+            <h3 class="skill-cat-title">Concepts</h3>
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag" data-level="advanced">Machine Learning</span>
+            <span class="skill-tag" data-level="advanced">Deep Learning</span>
+            <span class="skill-tag" data-level="advanced">Data Structures & Algorithms</span>
+            <span class="skill-tag" data-level="advanced">System Design Basics</span>
+            <span class="skill-tag" data-level="intermediate">Model Evaluation</span>
+            <span class="skill-tag" data-level="intermediate">Feature Engineering</span>
+            <!-- Add more tags here -->
+          </div>
+        </div>
+
+      </div>
+      <!-- /skills-grid -->
+
+      <!-- Skill level legend -->
+      <div class="skill-legend">
+        <span class="legend-item" data-level="expert">Expert</span>
+        <span class="legend-item" data-level="advanced">Advanced</span>
+        <span class="legend-item" data-level="intermediate">Intermediate</span>
+        <span class="legend-item" data-level="beginner">Beginner</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+         PROJECTS SECTION
+    ============================================================ -->
+  <section id="projects" class="section projects-section reveal">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">What I've built</span>
+        <h2 class="section-title">Featured <span class="gradient-text">Projects</span></h2>
+      </div>
+
+      <!-- Filter tabs (add/remove categories as needed) -->
+      <div class="project-filters" id="project-filters" role="tablist">
+        <button class="filter-btn active" data-filter="all" role="tab" id="filter-all">All</button>
+        <button class="filter-btn" data-filter="llm" role="tab" id="filter-llm">LLM</button>
+        <button class="filter-btn" data-filter="systems" role="tab" id="filter-systems">Systems</button>
+        <button class="filter-btn" data-filter="data" role="tab" id="filter-data">Data</button>
+      </div>
+
+      <div class="projects-grid" id="projects-grid">
+
+        <!-- ═══════════════════════════════════════════════════
+               PROJECT CARD COMPONENT
+               ───────────────────────────────────────────────────
+               HOW TO DUPLICATE:
+               1. Copy the entire <article class="project-card"> block
+               2. Change the id attributes (e.g., project-2, p2-*)
+               3. Update data-category to match your filter tags
+               4. Replace all [placeholder] text
+               5. Update tech tags and links
+          ═══════════════════════════════════════════════════ -->
+
+        <!-- ─── Project Card 1 ─── -->
+        <article class="project-card reveal-card" data-category="llm" id="project-1">
+          <!-- Card top accent bar (gradient defined in CSS) -->
+          <div class="card-accent-bar"></div>
+
+          <!-- Project image / banner -->
+          <div class="card-banner" id="p1-banner">
+            <div class="card-banner-placeholder">
+              <i class="bx bx-brain"></i>
+            </div>
+            <!-- EDIT: Uncomment and add your project screenshot
+              <img src="assets/projects/project-1.png" alt="[Project 1 Name]" />
+              -->
+            <!-- Featured badge (optional) -->
+            <span class="card-featured-badge">Featured</span>
+          </div>
+
+          <div class="card-body">
+            <!-- Category chip -->
+            <span class="card-category" id="p1-category">LLM</span>
+
+            <!-- Title -->
+            <h3 class="card-title" id="p1-title">Real-Time Streaming Voice AI Assistant</h3>
+
+            <!-- Description -->
+            <p class="card-desc" id="p1-desc">
+              Built a real-time voice AI assistant with sub-second latency using a streaming architecture. Integrated
+              STT, LLM, and TTS with async handling and multi-session support.
+            </p>
+
+            <!-- Tech Stack Tags -->
+            <div class="card-tech-tags" id="p1-tech">
+              <!-- EDIT: Replace with your actual tech stack -->
+              <span class="tech-tag">FastAPI</span>
+              <span class="tech-tag">WebSockets</span>
+              <span class="tech-tag">GPT-4o</span>
+              <span class="tech-tag">Sarvam STT</span>
+              <span class="tech-tag">ElevenLabs</span>
+              <!-- Add more <span class="tech-tag"> entries here -->
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="card-actions">
+              <a href="https://github.com/shashank8104/voice-ai-assistant" target="_blank" rel="noopener noreferrer"
+                class="btn btn-outline btn-sm" id="p1-github">
+                <i class="bx bxl-github"></i> GitHub
+              </a>
+              <a href="https://voice-ai-assistant-6hr4.onrender.com/" target="_blank" rel="noopener noreferrer"
+                class="btn btn-primary btn-sm" id="p1-demo">
+                <i class="bx bx-link-external"></i> Live Demo
+              </a>
+            </div>
+          </div>
+        </article>
+        <!-- /project-card-1 -->
+
+        <!-- ─── Project Card 2 ─── -->
+        <article class="project-card reveal-card" data-category="systems" id="project-2">
+          <div class="card-accent-bar"></div>
+          <div class="card-banner" id="p2-banner">
+            <div class="card-banner-placeholder">
+              <i class="bx bx-text"></i>
+            </div>
+          </div>
+          <div class="card-body">
+            <span class="card-category" id="p2-category">Systems</span>
+            <h3 class="card-title" id="p2-title">AI Dynamic Pricing Agent</h3>
+            <p class="card-desc" id="p2-desc">
+              Built an agentic AI system that dynamically adjusts product pricing based on demand, competition, and
+              market trends. Designed multi-agent workflows using LLMs to simulate market analysis, pricing decisions,
+              and inventory optimization.
+            </p>
+            <div class="card-tech-tags" id="p2-tech">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">LLMs</span>
+              <span class="tech-tag">LangChain</span>
+              <span class="tech-tag">FastAPI</span>
+              <span class="tech-tag">Multi-Agent Systems</span>
+            </div>
+            <div class="card-actions">
+              <a href="https://github.com/shashank8104/dynamic-pricing-ai" target="_blank" rel="noopener noreferrer"
+                class="btn btn-outline btn-sm" id="p2-github">
+                <i class="bx bxl-github"></i> GitHub
+              </a>
+              <a href="https://dynamic-pricing-ai.vercel.app/" target="_blank" rel="noopener noreferrer"
+                class="btn btn-primary btn-sm" id="p2-demo">
+                <i class="bx bx-link-external"></i> Live Demo
+              </a>
+            </div>
+          </div>
+        </article>
+        <!-- /project-card-2 -->
+
+        <!-- ─── Project Card 3 ─── -->
+        <article class="project-card reveal-card" data-category="data" id="project-3">
+          <div class="card-accent-bar"></div>
+          <div class="card-banner" id="p3-banner">
+            <div class="card-banner-placeholder">
+              <i class="bx bx-camera"></i>
+            </div>
+          </div>
+          <div class="card-body">
+            <span class="card-category" id="p3-category">DATA</span>
+            <h3 class="card-title" id="p3-title">TechTrend Analyzer</h3>
+            <p class="card-desc" id="p3-desc">
+              Developed an AI platform to detect emerging tech trends from Reddit using NLP pipelines. Built async data
+              ingestion and APIs for real-time insights.
+            </p>
+            <div class="card-tech-tags" id="p3-tech">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">FastAPI</span>
+              <span class="tech-tag">MongoDB</span>
+              <span class="tech-tag">PRAW</span>
+              <span class="tech-tag">NLP</span>
+              <span class="tech-tag">Async Pipelines</span>
+            </div>
+            <div class="card-actions">
+              <a href="https://github.com/shashank8104/techtrend-analyzer" target="_blank" rel="noopener noreferrer"
+                class="btn btn-outline btn-sm" id="p3-github">
+                <i class="bx bxl-github"></i> GitHub
+              </a>
+              <a href="https://drive.google.com/file/d/1MYjs-mdkNtBgXBHVTw0NQRGfcYegQVzY/view" target="_blank"
+                rel="noopener noreferrer" class="btn btn-primary btn-sm" id="p3-demo">
+                <i class="bx bx-link-external"></i> Live Demo
+              </a>
+            </div>
+          </div>
+        </article>
+        <!-- /project-card-3 -->
+
+        <!-- ─── Project Card 4 ─── -->
+        <article class="project-card reveal-card" data-category="llm" id="project-4">
+          <div class="card-accent-bar"></div>
+          <div class="card-banner" id="p4-banner">
+            <div class="card-banner-placeholder">
+              <i class="bx bx-layer"></i>
+            </div>
+          </div>
+          <div class="card-body">
+            <span class="card-category" id="p4-category">LLM</span>
+            <h3 class="card-title" id="p4-title">Resume Intelligence System</h3>
+            <p class="card-desc" id="p4-desc">
+              Built an AI-powered resume analysis system using RAG and semantic embeddings. Enabled job matching, skill
+              gap detection, and ATS-optimized content generation.
+            </p>
+            <div class="card-tech-tags" id="p4-tech">
+              <span class="tech-tag">FastAPI</span>
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">TypeScript</span>
+              <span class="tech-tag">Sentence-BERT</span>
+              <span class="tech-tag">FAISS</span>
+              <span class="tech-tag">RAG</span>
+            </div>
+            <div class="card-actions">
+              <a href="https://github.com/shashank8104/Resume-Generator" target="_blank" rel="noopener noreferrer"
+                class="btn btn-outline btn-sm" id="p4-github">
+                <i class="bx bxl-github"></i> GitHub
+              </a>
+              <a href="https://resume-generator-ebon.vercel.app/" target="_blank" rel="noopener noreferrer"
+                class="btn btn-primary btn-sm" id="p4-demo">
+                <i class="bx bx-link-external"></i> Live Demo
+              </a>
+            </div>
+          </div>
+        </article>
+        <!-- /project-card-4 -->
+
+        <!-- ADD MORE PROJECT CARDS HERE — just duplicate any card block above -->
+
+      </div>
+      <!-- /projects-grid -->
+
+      <div class="projects-cta">
+        <a href="https://github.com/repos" target="_blank" rel="noopener noreferrer" class="btn btn-outline"
+          id="view-all-projects">
+          <i class="bx bxl-github"></i> View All on GitHub
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+         EXPERIENCE SECTION
+    ============================================================ -->
+  <section id="experience" class="section experience-section reveal">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">My journey</span>
+        <h2 class="section-title">Experience & <span class="gradient-text">Education</span></h2>
+      </div>
+
+      <div class="experience-layout">
+
+        <!-- Left column: Work Experience -->
+        <div class="timeline-column" id="work-experience">
+          <h3 class="timeline-col-title">
+            <i class="bx bx-briefcase"></i> Work Experience
+          </h3>
+
+          <div class="timeline">
+
+            <!-- ─── Timeline Item ───
+                   HOW TO DUPLICATE: Copy the .timeline-item block and update
+                   id, role, org, duration, and bullet points -->
+
+            <!-- Experience Entry 1 -->
+            <div class="timeline-item" id="exp-1">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <div class="timeline-meta">
+                  <span class="timeline-duration" id="exp-1-duration">
+                    <i class="bx bx-calendar"></i> Dec 2025 – Present
+                  </span>
+                  <span class="timeline-type">Internship</span>
+                </div>
+                <h4 class="timeline-role" id="exp-1-role">AI Engineer Intern</h4>
+                <p class="timeline-org" id="exp-1-org">
+                  <i class="bx bx-buildings"></i> Stealth AI Startup
+                </p>
+                <ul class="timeline-bullets" id="exp-1-bullets">
+                  <li>Integrated OpenAI APIs for automated text generation and summarization.</li>
+                  <li>Built a RAG prototype using FAISS to improve contextual responses.</li>
+                  <li>Developed REST APIs with FastAPI and deployed using Docker.</li>
+                  <!-- Add more bullet points here -->
+                </ul>
+                <div class="timeline-tech">
+                  <span class="tech-tag">Python</span>
+                  <span class="tech-tag">FastAPI</span>
+                  <span class="tech-tag">OpenAI</span>
+                  <span class="tech-tag">FAISS</span>
+                  <span class="tech-tag">Docker</span>
+                </div>
+              </div>
+            </div>
+            <!-- /exp-1 -->
+
+            <!-- Experience Entry 2 -->
+            <div class="timeline-item" id="exp-2">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <div class="timeline-meta">
+                  <span class="timeline-duration" id="exp-2-duration">
+                    <i class="bx bx-calendar"></i> Feb 2025 – April 20255
+                  </span>
+                  <span class="timeline-type">Internship</span>
+                </div>
+                <h4 class="timeline-role" id="exp-2-role">Artifical Intelligence Intern</h4>
+                <p class="timeline-org" id="exp-2-org">
+                  <i class="bx bx-buildings"></i> Evoastra Ventures
+                </p>
+                <ul class="timeline-bullets" id="exp-2-bullets">
+                  <li>Analyzed Reddit data using NLP to extract sentiment trends (~78% accuracy).</li>
+                  <li>Trained ML models (Logistic Regression, Random Forest, SVM, XGBoost) for classification.</li>
+                  <li>Built automated pipelines for data preprocessing and model evaluation.</li>
+                </ul>
+                <div class="timeline-tech">
+                  <span class="tech-tag">Python</span>
+                  <span class="tech-tag">NLP</span>
+                  <span class="tech-tag">Scikit-learn</span>
+                  <span class="tech-tag">XGBoost</span>
+                  <span class="tech-tag">Data Analysis</span>
+                </div>
+              </div>
+            </div>
+            <!-- /exp-2 -->
+
+            <!-- ADD MORE experience items here by duplicating the .timeline-item block -->
+
+          </div>
+          <!-- /timeline -->
+        </div>
+
+        <!-- Right column: Education -->
+        <div class="timeline-column" id="education">
+          <h3 class="timeline-col-title">
+            <i class="bx bx-graduation"></i> Education
+          </h3>
+
+          <div class="timeline">
+
+            <!-- Education Entry 1 -->
+            <div class="timeline-item" id="edu-1">
+              <div class="timeline-dot timeline-dot--edu"></div>
+              <div class="timeline-content">
+                <div class="timeline-meta">
+                  <span class="timeline-duration" id="edu-1-duration">
+                    <i class="bx bx-calendar"></i> Nov 2022 – Present
+                  </span>
+                </div>
+                <h4 class="timeline-role" id="edu-1-degree">B.Tech in Computer Science</h4>
+                <p class="timeline-org" id="edu-1-org">
+                  <i class="bx bx-buildings"></i> Vellore Institute of Technology
+                </p>
+                <ul class="timeline-bullets" id="edu-1-bullets">
+                  <li>Specialized in Artificial Intelligence and Machine Learning.</li>
+                  <li>Core subjects: Data Structures, Operating Systems, DBMS, Machine Learning.</li>
+                </ul>
+              </div>
+            </div>
+            <!-- /edu-1 -->
+
+
+            <!-- /edu-2 -->
+
+          </div>
+          <!-- /timeline -->
+        </div>
+
+      </div>
+      <!-- /experience-layout -->
+    </div>
+  </section>
+
+  <!-- ============================================================
+         CONTACT SECTION
+    ============================================================ -->
+  <section id="contact" class="section contact-section reveal">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Let's connect</span>
+        <h2 class="section-title">Get In <span class="gradient-text">Touch</span></h2>
+      </div>
+
+      <div class="contact-layout">
+
+        <!-- Left: Contact Info -->
+        <div class="contact-info fade-in-left" id="contact-info">
+          <p class="contact-intro" id="contact-intro">
+            <!-- EDIT: Replace with your contact intro message -->
+            Open to opportunities, collaborations, and AI-focused projects. Feel free to reach out — I’d be happy to
+            connect.
+          </p>
+
+          <div class="contact-links" id="contact-links">
+
+            <!-- Email -->
+            <a href="mailto:shashank8104@gmail.com" class="contact-link" id="contact-email">
+              <div class="contact-link-icon">
+                <i class="bx bx-envelope"></i>
+              </div>
+              <div class="contact-link-text">
+                <span class="contact-link-label">Email</span>
+                <span class="contact-link-value">shashank8104@gmail.com</span>
+              </div>
+            </a>
+
+            <!-- LinkedIn -->
+            <a href="https://www.linkedin.com/in/ramanshashank/" target="_blank" rel="noopener noreferrer"
+              class="contact-link" id="contact-linkedin">
+              <div class="contact-link-icon">
+                <i class="bx bxl-linkedin"></i>
+              </div>
+              <div class="contact-link-text">
+                <span class="contact-link-label">LinkedIn</span>
+                <span class="contact-link-value">linkedin.com/in/shashank-raman</span>
+              </div>
+            </a>
+
+            <!-- GitHub -->
+            <a href="https://github.com/shashank8104" target="_blank" rel="noopener noreferrer" class="contact-link"
+              id="contact-github">
+              <div class="contact-link-icon">
+                <i class="bx bxl-github"></i>
+              </div>
+              <div class="contact-link-text">
+                <span class="contact-link-label">GitHub</span>
+                <span class="contact-link-value">shashank8104</span>
+              </div>
+            </a>
+
+            <!-- ADD MORE contact links here (Twitter, Kaggle, HuggingFace, etc.) -->
+
+          </div>
+        </div>
+
+        <!-- Right: Contact Form -->
+        <div class="contact-form-wrapper fade-in-right" id="contact-form-wrapper">
+          <form class="contact-form" id="contact-form" novalidate>
+            <div class="form-row">
+              <div class="form-group" id="fg-name">
+                <label for="form-name" class="form-label">Name</label>
+                <input type="text" id="form-name" name="name" class="form-input" placeholder="[Your name]" required
+                  autocomplete="name" />
+                <span class="form-error" id="err-name"></span>
+              </div>
+              <div class="form-group" id="fg-email">
+                <label for="form-email" class="form-label">Email</label>
+                <input type="email" id="form-email" name="email" class="form-input" placeholder="[your@email.com]"
+                  required autocomplete="email" />
+                <span class="form-error" id="err-email"></span>
+              </div>
+            </div>
+
+            <div class="form-group" id="fg-subject">
+              <label for="form-subject" class="form-label">Subject</label>
+              <input type="text" id="form-subject" name="subject" class="form-input"
+                placeholder="[e.g., Project Collaboration]" />
+            </div>
+
+            <div class="form-group" id="fg-message">
+              <label for="form-message" class="form-label">Message</label>
+              <textarea id="form-message" name="message" class="form-textarea" rows="5"
+                placeholder="[Write your message here...]" required></textarea>
+              <span class="form-error" id="err-message"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-full" id="form-submit">
+              <i class="bx bx-send"></i>
+              <span>Send Message</span>
+            </button>
+
+            <!-- Submission status message -->
+            <p class="form-status" id="form-status" aria-live="polite"></p>
+          </form>
+        </div>
+
+      </div>
+      <!-- /contact-layout -->
+    </div>
+  </section>
+
+  <!-- ============================================================
+         FOOTER
+    ============================================================ -->
+  <footer class="site-footer" id="footer">
+    <div class="container">
+      <div class="footer-top">
+        <!-- Logo -->
+        <a href="#home" class="footer-logo" id="footer-logo">
+          <span class="logo-bracket">&lt;</span>
+          <span class="logo-name">[SR]</span>
+          <span class="logo-bracket">/&gt;</span>
+        </a>
+
+        <!-- Footer nav -->
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#experience">Experience</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <!-- Social icons -->
+        <div class="footer-socials" id="footer-socials">
+          <!-- EDIT: Update href values with your actual social profile URLs -->
+          <a href="https://github.com/shashank8104" target="_blank" rel="noopener noreferrer" class="social-icon"
+            id="social-github" aria-label="GitHub">
+            <i class="bx bxl-github"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/ramanshashank/" target="_blank" rel="noopener noreferrer"
+            class="social-icon" id="social-linkedin" aria-label="LinkedIn">
+            <i class="bx bxl-linkedin"></i>
+          </a>
+          <a href="mailto:shashank8104@gmail.com" class="social-icon" id="social-email" aria-label="Email">
+            <i class="bx bx-envelope"></i>
+          </a>
+          <!-- ADD MORE social icons here -->
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p id="footer-copy">
+          &copy; <span id="footer-year"></span>
+          <span class="gradient-text">Shashank Raman</span>. Crafted with
+          <span class="heart">♥</span> — All rights reserved.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll-to-top button -->
+  <button class="scroll-top-btn" id="scroll-top-btn" aria-label="Scroll to top">
+    <i class="bx bx-chevron-up"></i>
+  </button>
+
+  <!-- Main JavaScript -->
+  <script src="js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,9 @@
+Add your files here:
+
+profile.jpg   → Your profile photo (any square/portrait image)
+resume.pdf    → Your resume PDF (linked to the "Download Resume" button)
+
+projects/     → Folder for project screenshots
+  project-1.png
+  project-2.png
+  ...etc
