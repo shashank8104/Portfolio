@@ -60,23 +60,24 @@
         <span></span>
       </button>
     </div>
-
-    <!-- Mobile Menu Drawer -->
-    <div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Mobile navigation">
-      <ul class="mobile-nav-links" role="list">
-        <li><a href="#home" class="mobile-nav-link" id="mob-home">Home</a></li>
-        <li><a href="#about" class="mobile-nav-link" id="mob-about">About</a></li>
-        <li><a href="#skills" class="mobile-nav-link" id="mob-skills">Skills</a></li>
-        <li><a href="#projects" class="mobile-nav-link" id="mob-projects">Projects</a></li>
-        <li><a href="#experience" class="mobile-nav-link" id="mob-experience">Experience</a></li>
-        <li><a href="#contact" class="mobile-nav-link" id="mob-contact">Contact</a></li>
-      </ul>
-    </div>
   </nav>
+
+  <!-- Mobile Menu Drawer (outside nav to prevent paint-clipping of fixed navbar) -->
+  <div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Mobile navigation">
+    <ul class="mobile-nav-links" role="list">
+      <li><a href="#home" class="mobile-nav-link" id="mob-home">Home</a></li>
+      <li><a href="#about" class="mobile-nav-link" id="mob-about">About</a></li>
+      <li><a href="#skills" class="mobile-nav-link" id="mob-skills">Skills</a></li>
+      <li><a href="#projects" class="mobile-nav-link" id="mob-projects">Projects</a></li>
+      <li><a href="#experience" class="mobile-nav-link" id="mob-experience">Experience</a></li>
+      <li><a href="#contact" class="mobile-nav-link" id="mob-contact">Contact</a></li>
+    </ul>
+  </div>
 
   <!-- ============================================================
          HERO SECTION
     ============================================================ -->
+  <div class="page-wrapper">
   <section id="home" class="section hero-section">
     <div class="hero-content fade-in-up">
       <!-- Greeting badge -->
@@ -838,6 +839,7 @@
   <button class="scroll-top-btn" id="scroll-top-btn" aria-label="Scroll to top">
     <i class="bx bx-chevron-up"></i>
   </button>
+  </div><!-- /page-wrapper -->
 
   <!-- Main JavaScript -->
   <script src="js/main.js"></script>

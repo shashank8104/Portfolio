@@ -75,8 +75,6 @@ html {
   font-size: 16px;
   margin: 0;
   padding: 0;
-  /* Prevent any fractional offset at the very start */
-  overflow-x: hidden;
 }
 
 body {
@@ -84,8 +82,6 @@ body {
   background-color: var(--clr-bg);
   color: #cbd5e1;
   line-height: 1.7;
-  /* Remove overflow-x from body — this was the stacking context bug.
-     Overflow is now handled on html instead. */
   margin: 0;
   padding: 0;
 }
@@ -312,17 +308,11 @@ button {
 /* ─── 5. NAVBAR ─────────────────────────────────────────────────── */
 .navbar {
   position: fixed;
-  /* Force integer pixel — prevents sub-pixel rendering clipping (-0.5px bug) */
-  top: 0px;
-  left: 0px;
-  right: 0px;
+  top: 0;
+  left: 0;
+  right: 0;
   height: var(--nav-h);
   z-index: 9999;
-
-  /* Promote to own GPU layer — eliminates sub-pixel compositing offset */
-  will-change: transform;
-  transform: translateZ(0);
-  /* Always-visible background so navbar is never invisible at page top */
   background: rgba(5, 10, 20, 0.7);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
@@ -1879,6 +1869,15 @@ button {
   .hero-visual {
     display: none;
   }
+}
+
+/* ─── 14b. PAGE WRAPPER ─────────────────────────────────────────── */
+/* Clips horizontal overflow without breaking position:fixed navbar.
+   overflow-x: hidden on html or body creates a scroll container in Chrome
+   which clips fixed children — so we use a wrapper div instead. */
+.page-wrapper {
+  overflow-x: clip; /* 'clip' (not hidden) — does NOT create a scroll container */
+  position: relative;
 }
 
 /* ─── 15. MISC HELPERS ──────────────────────────────────────────── */
